@@ -405,7 +405,7 @@ if main_menu=='Machine Learning':
         
         st.text("")
         st.subheader("Or Upload Your Excel File")
-        st.markdown("[Template for Excel](https://github.com/KeyCode17/DSW2023-Data_Sayens/raw/main/prediction_template.xlsx)")
+        st.markdown("[Template for Excel](https://github.com/KeyCode17/student-performance-classification/raw/master/excel_with_dropdowns_and_data.xlsx)")
         # File uploader for batch processing
         uploaded_file = st.file_uploader("Upload Excel file for batch processing", type=["xlsx", "xls"])
 
