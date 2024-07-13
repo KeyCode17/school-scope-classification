@@ -1,21 +1,7 @@
-# 📦 Streamlit App Starter Kit 
-```
-⬆️ (Replace above with your app's name)
-```
+# 📊 Student Performance Classification 
 
-Description of the app ...
+This study investigates the classification of school scope based on students' surrounding life using Machine Learning (ML). The primary problem addressed is the influence of family background and social environment on determining school scope, with the objective to develop an effective predictive model. Employing a Deep Neural Network (DNN) algorithm within a supervised learning framework, data from the UCI Machine Learning Repository, encompassing performance metrics of 649 students from two Portuguese secondary schools, was analyzed. Spearman's rank correlation coefficient and the Shapiro-Wilk normality test were used to understand variable relationships. The study found that students' surrounding life significantly impacts school scope classification. The DNN model attained an accuracy of 0.83077, with an identical F1 score and precision of 0.83077 each, as well as a recall rate of 0.83077. Additionally, it recorded an AUC-ROC score of 0.85752. These findings suggest that ML models can effectively predict school scope, providing valuable insights for educators and policymakers to create conducive learning environments by considering students' backgrounds. This research contributes to developing targeted educational strategies and policies.
 
-## Demo App
+## Dashboard
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ml-model-builder-template.streamlit.app/)
-
-## Section Heading
-
-This is filler text, please replace this with text for this section.
-
-## Further Reading
-
-This is filler text, please replace this with a explanatory text about further relevant resources for this repo
-- Resource 1
-- Resource 2
-- Resource 3
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_red.svg)](https://student-performance-classification.streamlit.app/)
