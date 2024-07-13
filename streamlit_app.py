@@ -173,10 +173,12 @@ def show_data(url, idx_name, num=None):
     return df
 
 with st.expander('About this article'):
-    st.markdown('**What can this app do?**')
-    st.info('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')    
+    st.markdown('**Abstract**')
+    st.info("""
+    This study investigates the classification of school scope based on students' surrounding life using Machine Learning (ML). The primary problem addressed is the influence of family background and social environment on determining school scope, with the objective to develop an effective predictive model. Employing a Deep Neural Network (DNN) algorithm within a supervised learning framework, data from the UCI Machine Learning Repository, encompassing performance metrics of 649 students from two Portuguese secondary schools, was analyzed. Spearman's rank correlation coefficient and the Shapiro-Wilk normality test were used to understand variable relationships. The study found that students' surrounding life significantly impacts school scope classification. The DNN model attained an accuracy of 0.83077, with an identical F1 score and precision of 0.83077 each, as well as a recall rate of 0.83077. Additionally, it recorded an AUC-ROC score of 0.85752. These findings suggest that ML models can effectively predict school scope, providing valuable insights for educators and policymakers to create conducive learning environments by considering students' backgrounds. This research contributes to developing targeted educational strategies and policies.
+    """)    
     
-    st.markdown('**How to use the app?**')
+    st.markdown('**Thanks**')
     st.warning('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.') 
     
     st.markdown('**Notes**')
