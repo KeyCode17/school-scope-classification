@@ -179,7 +179,7 @@ with st.expander('About this article'):
     """)    
     
     with st.expander('**Acknowledgments**'):
-        st.warning('''
+        st.info('''
     Praise to Allah SWT, the Creator of the universe, for His endless mercy and blessings. I also send my heartfelt regards to the Prophet Muhammad SAW, who has shown us the path of righteousness.
 
     I am deeply grateful to my parents for their unwavering support, prayers, and love throughout my journey. Their encouragement has been a guiding light in my life.
