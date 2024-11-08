@@ -93,7 +93,7 @@ model = load_model(model_path)
 
 # Correlation Functions
 with open(f'{dirloc}/function/all_functions.pkl', 'rb') as file:
-    plot_combined_pie_charts, plot_combined_treemap_not2, plot_distribution, plot_boxplot, plot_normality_tests, heatmaps_spearman, get_top_correlations, plot_top_correlations = pickle.load(file)
+    plot_combined_pie_charts, plot_combined_treemap_not2, plot_distribution, plot_boxplot, plot_normality_tests, heatmaps_spearman, get_top_correlations_with_column, plot_correlations_with_column = pickle.load(file)
 
 # Normalize Data
 pipeline = joblib.load(f'{dirloc}/function/pipeline.pkl')
@@ -200,13 +200,24 @@ with st.expander('About this article'):
         st.dataframe(deskripsi,use_container_width=True)
 
     with st.expander('Machine Learning Model'):
-        model_ml = st.columns((1,2))
-        with model_ml[1]:
-            st.image(f'{dirloc}/model/model_c.png', use_column_width=True)
-        with model_ml[0]:
-            st.image(f'{dirloc}/model/layer.png', use_column_width=True)
-        with st.expander('Model Evaluation'):
-            st.image(f'{dirloc}/model/evaluation_scores.png', use_column_width=True)
+        with st.expander('Model With All Data', expanded=False):
+            model_ml = st.columns((1,2))
+            with model_ml[1]:
+                st.image(f'{dirloc}/model/model_c.png', use_column_width=True)
+            with model_ml[0]:
+                st.image(f'{dirloc}/model/layer.png', use_column_width=True)
+            with st.expander('Model Evaluation'):
+                st.image(f'{dirloc}/model/evaluation_scores.png', use_column_width=True)
+
+        with st.expander('Model WITH Top 5 Correlation', expanded=False):
+            st.image(f'{dirloc}/model/corr-model.png', use_column_width=True)
+            with st.expander('Model Evaluation'):
+                st.image(f'{dirloc}/model/corr-evaluation_scores.png', use_column_width=True)
+                
+        with st.expander('Model WITHOUT Top 5 Correlatio', expanded=False):
+            st.image(f'{dirloc}/model/uncorr-model.png', use_column_width=True)
+            with st.expander('Model Evaluation'):
+                st.image(f'{dirloc}/model/uncorr-evaluation_scores.png', use_column_width=True)
 
 
     with st.expander('Libraries used'):
@@ -316,11 +327,18 @@ if main_menu=='Analysis':
         st.pyplot(plt.gcf())
 
     if selected=='Spearman':
-        spearman_corr = heatmaps_spearman(filtered_data[int_columns_filtered1], int_columns_filtered1);
+        correlation = filtered_data[int_columns_filtered1].copy()
+        correlation['school'] = data_transformed_sorted_y
+        int_columns_filtered1 = list(int_columns_filtered1)
+        int_columns_filtered1.append('school')
+
+        spearman_corr = heatmaps_spearman(correlation, int_columns_filtered1, 'Spearman Correlation');
         st.pyplot(plt.gcf())
         top_n = st.selectbox("Select number of top correlations", options=[5, 10, 20], index=0)
-        top_spearman = get_top_correlations(spearman_corr, top_n=top_n)
-        plot_top_correlations(top_spearman, f'Top {top_n} Spearman Correlations', "h")
+        top_spearman = get_top_correlations_with_column(spearman_corr, 'school', top_n=top_n)
+        plot_correlations_with_column(correlations=top_spearman,
+        target_column='school',
+        title=f"Top {top_n} Spearman Correlations with 'school'")
         st.pyplot(plt.gcf())
 
 if main_menu=='Machine Learning':
