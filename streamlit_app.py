@@ -209,7 +209,7 @@ with st.expander('About this article'):
             with st.expander('Model Evaluation'):
                 st.image(f'{dirloc}/model/evaluation_scores.png', use_column_width=True)
 
-        with st.expander('Model WITH Top 5 Correlation', expanded=False):
+        with st.expander('Model only Top 5 Correlation', expanded=False):
             st.image(f'{dirloc}/model/corr-model.png', use_column_width=True)
             with st.expander('Model Evaluation'):
                 st.image(f'{dirloc}/model/corr-evaluation_scores.png', use_column_width=True)
@@ -218,6 +218,11 @@ with st.expander('About this article'):
             st.image(f'{dirloc}/model/uncorr-model.png', use_column_width=True)
             with st.expander('Model Evaluation'):
                 st.image(f'{dirloc}/model/uncorr-evaluation_scores.png', use_column_width=True)
+        
+        with st.expander('Model WITH Top 5 Correlatio', expanded=False):
+            st.image(f'{dirloc}/model/noncorr-model.png', use_column_width=True)
+            with st.expander('Model Evaluation'):
+                st.image(f'{dirloc}/model/noncorr-evaluation_scores.png', use_column_width=True)
 
 
     with st.expander('Libraries used'):
@@ -334,7 +339,7 @@ if main_menu=='Analysis':
 
         spearman_corr = heatmaps_spearman(correlation, int_columns_filtered1, 'Spearman Correlation');
         st.pyplot(plt.gcf())
-        top_n = st.selectbox("Select number of top correlations", options=[5, 10, 20], index=0)
+        top_n = st.selectbox("Select number of top correlations", options=[5, 10], index=0)
         top_spearman = get_top_correlations_with_column(spearman_corr, 'school', top_n=top_n)
         plot_correlations_with_column(correlations=top_spearman,
         target_column='school',
