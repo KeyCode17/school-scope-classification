@@ -214,12 +214,12 @@ with st.expander('About this article'):
             with st.expander('Model Evaluation'):
                 st.image(f'{dirloc}/model/corr-evaluation_scores.png', use_column_width=True)
                 
-        with st.expander('Model WITHOUT Top 5 Correlatio', expanded=False):
+        with st.expander('Model WITHOUT Top 5 Correlation', expanded=False):
             st.image(f'{dirloc}/model/uncorr-model.png', use_column_width=True)
             with st.expander('Model Evaluation'):
                 st.image(f'{dirloc}/model/uncorr-evaluation_scores.png', use_column_width=True)
         
-        with st.expander('Model WITH Top 5 Correlatio', expanded=False):
+        with st.expander('Model WITH Top 5 Correlation', expanded=False):
             st.image(f'{dirloc}/model/noncorr-model.png', use_column_width=True)
             with st.expander('Model Evaluation'):
                 st.image(f'{dirloc}/model/noncorr-evaluation_scores.png', use_column_width=True)
