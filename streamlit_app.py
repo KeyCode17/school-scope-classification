@@ -69,9 +69,11 @@ import streamlit_nested_layout
 from streamlit_option_menu import option_menu
 # End Of Imports
 
-st.set_page_config(page_title='Student Performance', page_icon='📊')
-st.title("School scope classification through the living environment around students")
-
+st.set_page_config(page_title='Student Scope Classification', page_icon='📊')
+st.title("Classifying School Scope Using Deep Neural Networks Based on Students' Surrounding Living Environments")
+st.markdown('Journal Article')
+link = "[https://doi.org/10.62411/jcta.11739](https://doi.org/10.62411/jcta.11739)"
+st.markdown(f'''{link}''')
 # Setting the directory location
 dirloc = os.path.dirname(os.path.abspath(__file__))
 
@@ -175,18 +177,20 @@ def show_data(url, idx_name, num=None):
 with st.expander('About this article'):
     st.markdown('**Abstract**')
     st.info("""
-    This study investigates the classification of school scope based on students' surrounding life using Machine Learning (ML). The primary problem addressed is the influence of family background and social environment on determining school scope, with the objective to develop an effective predictive model. Employing a Deep Neural Network (DNN) algorithm within a supervised learning framework, data from the UCI Machine Learning Repository, encompassing performance metrics of 649 students from two Portuguese secondary schools, was analyzed. Spearman's rank correlation coefficient and the Shapiro-Wilk normality test were used to understand variable relationships. The study found that students' surrounding life significantly impacts school scope classification. The DNN model attained an accuracy of 0.83077, with an identical F1 score and precision of 0.83077 each, as well as a recall rate of 0.83077. Additionally, it recorded an AUC-ROC score of 0.85752. These findings suggest that ML models can effectively predict school scope, providing valuable insights for educators and policymakers to create conducive learning environments by considering students' backgrounds. This research contributes to developing targeted educational strategies and policies.
+    This research investigates school scope classification using Deep Neural Networks (DNN), focusing on students living environments and educational opportunities. By addressing the interplay of socioeconomic and educational factors, the study aims to develop an analytical framework for understanding how environmental contexts shape academic trajectories. The research provides a nuanced understanding of the importance of features in educational classification by developing DNN models based on Spearman's Rank Correlation Coefficient (SRCC). The methodology employs machine learning techniques, integrating data wrangling, exploratory analysis, and multiple DNN models with K-fold cross-validation. The study analyzes 677 student records from two schools. The research examined multiple model configurations. Results show that the 'All Data' model achieved 83.08% accuracy, the 'Top 5' model 81.54%, and the 'Non-Top 5' model 79.23%. The SRCC-based approach revealed that while top correlated features are important, additional variables significantly contribute to model performance. The study highlights the profound impact of family background, social environment, and educational contexts on school selection. Furthermore, it demonstrates DNN's capability to uncover intricate, non-linear relationships, offering actionable insights for policymakers to leverage machine learning's potential in developing targeted educational strategies.
     """)    
     
     with st.expander('**Acknowledgments**'):
         st.info('''
-    Praise to Allah SWT, the Creator of the universe, for His endless mercy and blessings. I also send my heartfelt regards to the Prophet Muhammad SAW, who has shown us the path of righteousness.
+Praise to Allah SWT, the Creator of the universe, for His endless mercy and blessings. I also send my heartfelt regards to the Prophet Muhammad SAW, who has shown us the path of righteousness.  
 
-    I am deeply grateful to my parents for their unwavering support, prayers, and love throughout my journey. Their encouragement has been a guiding light in my life.
+I am deeply grateful to my parents for their unwavering support, prayers, and love throughout my journey. Their encouragement has been a guiding light in my life.  
 
-    I would also like to thank my advisor, Drs. Anis Zubair, M.Kom., for his invaluable guidance and constructive feedback during the preparation of this report. His support has been instrumental in helping me navigate the challenges I encountered.
+I am particularly thankful to my beloved Armelia Ramandha, whose love, understanding, and constant support have been my source of strength and inspiration throughout this endeavor.  
 
-    This report would not have been possible without the collaboration and assistance of everyone mentioned. I hope it contributes positively to the fields of knowledge and industry.
+I would also like to thank my advisor, Drs. Anis Zubair, M.Kom., for his invaluable guidance and constructive feedback during the preparation of this report. His support has been instrumental in helping me navigate the challenges I encountered.  
+
+This report would not have been possible without the collaboration and assistance of everyone mentioned. I hope it contributes positively to the fields of knowledge and industry.
     ''') 
     
     st.markdown('**Notes**')
@@ -206,24 +210,21 @@ with st.expander('About this article'):
                 st.image(f'{dirloc}/model/model_c.png', use_column_width=True)
             with model_ml[0]:
                 st.image(f'{dirloc}/model/layer.png', use_column_width=True)
-            with st.expander('Model Evaluation'):
-                st.image(f'{dirloc}/model/evaluation_scores.png', use_column_width=True)
 
         with st.expander('Model only Top 5 Correlation', expanded=False):
             st.image(f'{dirloc}/model/corr-model.png', use_column_width=True)
-            with st.expander('Model Evaluation'):
-                st.image(f'{dirloc}/model/corr-evaluation_scores.png', use_column_width=True)
                 
         with st.expander('Model WITHOUT Top 5 Correlation', expanded=False):
             st.image(f'{dirloc}/model/uncorr-model.png', use_column_width=True)
-            with st.expander('Model Evaluation'):
-                st.image(f'{dirloc}/model/uncorr-evaluation_scores.png', use_column_width=True)
         
         with st.expander('Model WITH Top 5 Correlation', expanded=False):
             st.image(f'{dirloc}/model/noncorr-model.png', use_column_width=True)
-            with st.expander('Model Evaluation'):
-                st.image(f'{dirloc}/model/noncorr-evaluation_scores.png', use_column_width=True)
-
+        
+        with st.expander('Model Evaluation', expanded=False):
+            with st.expander('Model Measurement'):
+                st.image(f'{dirloc}/model/Evaluation-Model.png', use_column_width=True)
+            with st.expander('Loss Measurement'):
+                st.image(f'{dirloc}/model/Evaluation-Loss.png', use_column_width=True)
 
     with st.expander('Libraries used'):
         cols1 = st.columns([1, 1])
