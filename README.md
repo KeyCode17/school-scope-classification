@@ -4,4 +4,4 @@ This research investigates school scope classification using Deep Neural Network
 
 ## Dashboard
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_red.svg)](https://student-scope-classification.streamlit.app/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_red.svg)](https://school-scope-classification.streamlit.app/)
